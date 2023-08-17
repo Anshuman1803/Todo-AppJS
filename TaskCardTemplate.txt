@@ -1,0 +1,11 @@
+
+         <div class="TaskCard">
+          <h2 class="TaskHeading">Task Heading</h2>
+          <div class="SubTaskContainer">
+            <p class="subTask subTaskCompleted"> SUb Task<span class="subTaskMarkDoneBtn">Done</span></p>
+          </div>
+          <div class="ButtonContainer">
+            <i class="fa-solid fa-trash deleteTaskCardBtn cardCommonBtn"></i>
+            <i class="fa-solid fa-circle-plus AddSubTaskPopupBtn cardCommonBtn"></i>
+          </div>
+        </div> 
