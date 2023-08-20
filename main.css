@@ -81,20 +81,17 @@ header {
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
-    position: relative;
     gap: 50px;
-
     overflow-y: auto;
 }
 
 #DefaultText {
     font-family: 'Bungee Spice', cursive;
-    font-size: 50px;
+    font-size: 40px;
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
-    /* display: none; */
+    transform: translate(-50%, -50%)
 }
 
 .TaskCard {
@@ -104,6 +101,23 @@ header {
     background-color: rgba(255, 255, 255, 0.37);
     border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+}
+.DeletedCard{
+    position: relative;
+    top: -50px;
+    opacity: 0;
+    animation: TaskDeleted 1.2s ease-in;
+}
+@keyframes TaskDeleted {
+    from{
+        top: 0;
+        opacity: 1;
+    }
+    to{
+        top: -50%;
+        opacity: 0;
+    }
+    
 }
 
 .TaskHeading {
@@ -134,17 +148,28 @@ header {
     color: white;
     font-weight: 400;
     margin-top: 10px;
+    width: 100%;
 }
 .subTaskCompleted{
-    font-weight: bolder;
-    font-size: 22px;
-    padding: 0;
-    background: tomato;
+    width: 100%;
+    animation: SubTaskCompleted 1.2s ease-in;
     text-decoration: line-through;
-    color: white;
+    text-align: center;
+    background-color: rgba(255, 99, 71, 0.638);
     justify-content: center;
-    pointer-events: none;
-    user-select: none;
+    color: white;
+}
+
+@keyframes SubTaskCompleted {
+
+    from{
+        width: 0%;
+        opacity: 0;
+    }
+    to{
+        width: 100%;
+        opacity: 1;
+    }
 }
 .subTaskCompleted .subTaskMarkDoneBtn{
     display: none;
@@ -216,12 +241,6 @@ header {
 }
 
 
-
-
-
-
-
-
 #AddItemPopup, #AddSubTaskPopup {
     background-color: white;
     width: 550px;
@@ -236,6 +255,21 @@ header {
     gap: 20px;
     padding-bottom: 2em;
     z-index: 5;
+    transition: all 1s ease-in;
+    animation: PopupAnimation 0.9s ease-in;
+}
+@keyframes PopupAnimation {
+    from{
+        top: 100%;
+        opacity: 0;
+
+    }
+    to{
+        top: 50%;
+        opacity: 1;
+        
+    }
+    
 }
 
 .UnactivePopup {
@@ -310,4 +344,44 @@ header {
     height: 100%;
     backdrop-filter: blur(10px);
     display: none;
+}
+
+@media screen and (max-width: 725px) {
+    header {
+   justify-content: center;
+
+}
+
+.AppLogo {
+  display: none;
+}
+
+
+#TaskCardContainer {
+    justify-content: center;
+    padding: 2em 1em;
+}
+
+#DefaultText {
+    font-size: 20px;
+}
+
+#AddItemPopup, #AddSubTaskPopup {
+    width: 95%;
+}
+
+
+
+.TaskPopupHeading {
+    padding: 1em;
+}
+
+.ClosePopup {
+    font-size: 25px;
+}
+
+.PopupInput {
+    width: 95%;
+}
+
 }

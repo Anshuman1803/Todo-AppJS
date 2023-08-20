@@ -69,14 +69,18 @@ function createTaskCardList(TaskName) {
 
 
 
-    //!Adding EventListener to elements
+    //!Adding EventListener to element, this code delete the click card
     iDeleteTaskCardButton.addEventListener("click", (e) => {
         //*this line of code give the grand parent of the clickd button.
         let Parent = (e.target.parentNode).parentNode;
-        Parent.remove();
+        Parent.classList.add("DeletedCard");
+        setInterval(() => {
+            Parent.remove();
+        }, 1200);
         // this line of code decrease the count of taskcard and then call the function for showing or hiding the default message
         TaskCardCount--;
         ShowHIdeDefaultMessage();
+
     })
 
     iAddSubTaskPopupBtn.addEventListener("click", (e) => {
@@ -159,5 +163,3 @@ AddNewSubTaskBtn.addEventListener('click', (e) => {
     }
 
 })
-
-
