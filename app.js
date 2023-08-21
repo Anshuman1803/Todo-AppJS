@@ -10,6 +10,13 @@ const subTaskNameInput = document.querySelector("#subTaskNameInput");
 const AddNewSubTaskBtn = document.querySelector("#AddNewSubTaskBtn");
 
 const TaskCardContainer = document.getElementById("TaskCardContainer");
+
+
+const AppLogoBox = document.querySelector(".AppLogo");
+const BackButton = document.querySelector("#BackButton");
+const addPopupbtnText = document.querySelector(".addPopupbtnText");
+let currentClickdCard;
+
 let TaskCardCount = 0;
 let currentSubCardContainer;
 
@@ -43,6 +50,7 @@ function ShowHIdeDefaultMessage() {
         DefaultText.style.display = "none"
     }
 }
+
 
 // This block of code use to create the task list card
 function createTaskCardList(TaskName) {
@@ -92,6 +100,12 @@ function createTaskCardList(TaskName) {
         subTaskNameInput.focus();
     })
 
+    h2TaskHeading.addEventListener("click", (e) => {
+        AppLogoBox.classList.add("UnactivePopup");
+        BackButton.classList.remove("UnactivePopup");
+        addPopupbtnText.classList.add("UnactivePopup");
+    })
+
 
     //! Appending Child to parent and Parent to grandparent
     divTaskCard.appendChild(h2TaskHeading);
@@ -112,6 +126,7 @@ AddNewTaskBtn.addEventListener('click', (e) => {
         let TaskName = TaskListNameInput.value;
         TaskListNameInput.classList.remove("ErrorNotice");
         createTaskCardList(TaskName);
+        // HideSingleCardContainer();
         TaskListNameInput.value = "";
         TaskListNameInput.focus();
 
@@ -162,4 +177,13 @@ AddNewSubTaskBtn.addEventListener('click', (e) => {
 
     }
 
+})
+
+function HideSingleCardContainer() {
+    AppLogoBox.classList.remove("UnactivePopup");
+    BackButton.classList.add("UnactivePopup");
+    addPopupbtnText.classList.remove("UnactivePopup");
+}
+BackButton.addEventListener('click', (e) => {
+    HideSingleCardContainer();
 })

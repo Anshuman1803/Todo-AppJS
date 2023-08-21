@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Bungee+Spice&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -46,6 +47,16 @@ header {
 
 }
 
+
+#BackButton {
+    background-color: transparent;
+    border: none;
+    font-size: 30px;
+    font-weight: bolder;
+    color: white;
+    cursor: pointer;
+}
+
 .AppLogo {
     gap: 10px;
 }
@@ -61,7 +72,6 @@ header {
 
 #addItemPopupBtn {
     border: none;
-    width: 200px;
     justify-content: center;
     background-color: transparent;
     font-size: 30px;
@@ -70,8 +80,6 @@ header {
     font-weight: normal;
     cursor: pointer;
 }
-
-
 
 #TaskCardContainer {
     width: 100%;
@@ -82,8 +90,20 @@ header {
     justify-content: space-between;
     flex-wrap: wrap;
     gap: 50px;
+    border: 2px solid blue;
+    /* position: relative; */
     overflow-y: auto;
 }
+
+
+/* .SingleCenterCard {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px solid red;
+    z-index: 2;
+} */
 
 #DefaultText {
     font-family: 'Bungee Spice', cursive;
@@ -102,22 +122,25 @@ header {
     border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
 }
-.DeletedCard{
-    position: relative;
-    top: -50px;
+
+.DeletedCard {
+    position:relative;
+    top: -50%;
     opacity: 0;
     animation: TaskDeleted 1.2s ease-in;
 }
+
 @keyframes TaskDeleted {
-    from{
+    from {
         top: 0;
         opacity: 1;
     }
-    to{
+
+    to {
         top: -50%;
         opacity: 0;
     }
-    
+
 }
 
 .TaskHeading {
@@ -137,7 +160,8 @@ header {
     padding: 0.5em;
     overflow-y: auto;
 }
-.subTask{
+
+.subTask {
     border: none;
     border-radius: 10px;
     padding: 0.5em 2em 0.5em 0.5em;
@@ -150,7 +174,8 @@ header {
     margin-top: 10px;
     width: 100%;
 }
-.subTaskCompleted{
+
+.subTaskCompleted {
     width: 100%;
     animation: SubTaskCompleted 1.2s ease-in;
     text-decoration: line-through;
@@ -162,19 +187,22 @@ header {
 
 @keyframes SubTaskCompleted {
 
-    from{
+    from {
         width: 0%;
         opacity: 0;
     }
-    to{
+
+    to {
         width: 100%;
         opacity: 1;
     }
 }
-.subTaskCompleted .subTaskMarkDoneBtn{
+
+.subTaskCompleted .subTaskMarkDoneBtn {
     display: none;
 }
-.subTaskMarkDoneBtn{
+
+.subTaskMarkDoneBtn {
     border: none;
     position: absolute;
     right: 0;
@@ -189,7 +217,8 @@ header {
     color: #28a745;
     font-weight: bold;
 }
-.subTaskMarkDoneBtn:hover{
+
+.subTaskMarkDoneBtn:hover {
     cursor: pointer;
     background-color: rgb(243, 243, 243);
 }
@@ -241,7 +270,8 @@ header {
 }
 
 
-#AddItemPopup, #AddSubTaskPopup {
+#AddItemPopup,
+#AddSubTaskPopup {
     background-color: white;
     width: 550px;
     height: 300px;
@@ -258,18 +288,20 @@ header {
     transition: all 1s ease-in;
     animation: PopupAnimation 0.9s ease-in;
 }
+
 @keyframes PopupAnimation {
-    from{
+    from {
         top: 100%;
         opacity: 0;
 
     }
-    to{
+
+    to {
         top: 50%;
         opacity: 1;
-        
+
     }
-    
+
 }
 
 .UnactivePopup {
@@ -343,45 +375,48 @@ header {
     background-color: rgba(0, 0, 0, 0);
     height: 100%;
     backdrop-filter: blur(10px);
+    z-index: 4;
     display: none;
 }
 
 @media screen and (max-width: 725px) {
     header {
-   justify-content: center;
+        padding: 1em 0.5em;
+        justify-content: center;
+        gap: 160px;
+    }
 
-}
-
-.AppLogo {
-  display: none;
-}
-
-
-#TaskCardContainer {
-    justify-content: center;
-    padding: 2em 1em;
-}
-
-#DefaultText {
-    font-size: 20px;
-}
-
-#AddItemPopup, #AddSubTaskPopup {
-    width: 95%;
-}
+    .AppLogo {
+        display: none;
+    }
 
 
+    #TaskCardContainer {
+        justify-content: center;
+        padding: 2em 1em;
+    }
 
-.TaskPopupHeading {
-    padding: 1em;
-}
+    #DefaultText {
+        font-size: 20px;
+    }
 
-.ClosePopup {
-    font-size: 25px;
-}
+    #AddItemPopup,
+    #AddSubTaskPopup {
+        width: 95%;
+    }
 
-.PopupInput {
-    width: 95%;
-}
+
+
+    .TaskPopupHeading {
+        padding: 1em;
+    }
+
+    .ClosePopup {
+        font-size: 25px;
+    }
+
+    .PopupInput {
+        width: 95%;
+    }
 
 }

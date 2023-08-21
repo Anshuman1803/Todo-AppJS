@@ -19,8 +19,12 @@
           <img src="./TodoLogo.png" alt="App-Logo" />
           <h1>Task List</h1>
         </div>
+        <button id="BackButton" class="UnactivePopup">
+          <i class="fa-solid fa-arrow-left"></i> Back
+        </button>
         <button class="FlexContainer" id="addItemPopupBtn">
-          <i class="fa-solid fa-circle-plus"></i>Add Item
+          <i class="fa-solid fa-circle-plus"></i
+          ><span class="addPopupbtnText">Add Item</span>
         </button>
       </header>
       <section id="TaskCardContainer">
@@ -29,7 +33,6 @@
     </main>
 
     <!-- Add Task Item Popup Window -->
-    <!--  -->
     <div id="AddItemPopup" class="FlexContainer UnactivePopup">
       <h4 class="TaskPopupHeading FlexContainer">
         Add New Task List
