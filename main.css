@@ -36,6 +36,7 @@ body {
 
 header {
     position: sticky;
+    z-index: 7;
     top: 0;
     left: 0;
     height: 70px;
@@ -88,22 +89,31 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 30px;
     flex-wrap: wrap;
-    gap: 50px;
-    border: 2px solid blue;
-    /* position: relative; */
+    position: relative;
     overflow-y: auto;
 }
 
-
-/* .SingleCenterCard {
+.SingleCardShow {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    border: 2px solid red;
+    z-index: 5;
+}
+
+.SingleCardContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
     z-index: 2;
-} */
+    width: 100%;
+    background-image: linear-gradient(to right, #383226, #273b3b);
+    height: 100%;
+    overflow: none;
+    z-index: 4;
+}
 
 #DefaultText {
     font-family: 'Bungee Spice', cursive;
@@ -124,20 +134,16 @@ header {
 }
 
 .DeletedCard {
-    position:relative;
-    top: -50%;
     opacity: 0;
     animation: TaskDeleted 1.2s ease-in;
 }
 
 @keyframes TaskDeleted {
     from {
-        top: 0;
         opacity: 1;
     }
 
     to {
-        top: -50%;
         opacity: 0;
     }
 
@@ -177,6 +183,7 @@ header {
 
 .subTaskCompleted {
     width: 100%;
+    position: relative;
     animation: SubTaskCompleted 1.2s ease-in;
     text-decoration: line-through;
     text-align: center;
@@ -184,6 +191,7 @@ header {
     justify-content: center;
     color: white;
 }
+
 
 @keyframes SubTaskCompleted {
 
@@ -284,7 +292,7 @@ header {
     justify-content: center;
     gap: 20px;
     padding-bottom: 2em;
-    z-index: 5;
+    z-index: 50;
     transition: all 1s ease-in;
     animation: PopupAnimation 0.9s ease-in;
 }
@@ -375,7 +383,7 @@ header {
     background-color: rgba(0, 0, 0, 0);
     height: 100%;
     backdrop-filter: blur(10px);
-    z-index: 4;
+    z-index: 8;
     display: none;
 }
 

@@ -13,6 +13,7 @@ const TaskCardContainer = document.getElementById("TaskCardContainer");
 
 
 const AppLogoBox = document.querySelector(".AppLogo");
+const SingleCardContainer = document.querySelector(".SingleCardContainer");
 const BackButton = document.querySelector("#BackButton");
 const addPopupbtnText = document.querySelector(".addPopupbtnText");
 let currentClickdCard;
@@ -101,6 +102,9 @@ function createTaskCardList(TaskName) {
     })
 
     h2TaskHeading.addEventListener("click", (e) => {
+        currentClickdCard = e.currentTarget.parentNode;
+        currentClickdCard.classList.add("SingleCardShow");
+        SingleCardContainer.classList.remove("UnactivePopup")
         AppLogoBox.classList.add("UnactivePopup");
         BackButton.classList.remove("UnactivePopup");
         addPopupbtnText.classList.add("UnactivePopup");
@@ -180,6 +184,8 @@ AddNewSubTaskBtn.addEventListener('click', (e) => {
 })
 
 function HideSingleCardContainer() {
+    SingleCardContainer.classList.add("UnactivePopup");
+    currentClickdCard.classList.remove("SingleCardShow");
     AppLogoBox.classList.remove("UnactivePopup");
     BackButton.classList.add("UnactivePopup");
     addPopupbtnText.classList.remove("UnactivePopup");
