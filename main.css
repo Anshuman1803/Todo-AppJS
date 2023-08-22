@@ -102,6 +102,15 @@ header {
     transform: translate(-50%, -50%);
     z-index: 5;
 }
+#ClickedCardHeading{
+    font-family: 'Bungee Spice', cursive;
+    font-size: 40px;
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 5;
+}
 
 .SingleCardContainer {
     position: absolute;

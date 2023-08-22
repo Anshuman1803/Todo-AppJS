@@ -14,6 +14,7 @@ const TaskCardContainer = document.getElementById("TaskCardContainer");
 
 const AppLogoBox = document.querySelector(".AppLogo");
 const SingleCardContainer = document.querySelector(".SingleCardContainer");
+const ClickedCardHeading = document.querySelector("#ClickedCardHeading");
 const BackButton = document.querySelector("#BackButton");
 const addPopupbtnText = document.querySelector(".addPopupbtnText");
 let currentClickdCard;
@@ -102,6 +103,7 @@ function createTaskCardList(TaskName) {
     })
 
     h2TaskHeading.addEventListener("click", (e) => {
+        ClickedCardHeading.innerText = e.target.innerText;
         currentClickdCard = e.currentTarget.parentNode;
         currentClickdCard.classList.add("SingleCardShow");
         SingleCardContainer.classList.remove("UnactivePopup")
