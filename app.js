@@ -53,6 +53,17 @@ function ShowHIdeDefaultMessage() {
     }
 }
 
+//This block of code change the layout to Initial stage
+function HideSingleCardContainer() {
+    if (currentClickdCard) {
+        SingleCardContainer.classList.add("UnactivePopup");
+        currentClickdCard.classList.remove("SingleCardShow");
+        AppLogoBox.classList.remove("UnactivePopup");
+        BackButton.classList.add("UnactivePopup");
+        addPopupbtnText.classList.remove("UnactivePopup");
+    }
+
+}
 
 // This block of code use to create the task list card
 function createTaskCardList(TaskName) {
@@ -85,8 +96,9 @@ function createTaskCardList(TaskName) {
         let Parent = (e.target.parentNode).parentNode;
         Parent.classList.add("DeletedCard");
         ClickedCardHeading.innerText = "";
-        setInterval(() => {
+        setTimeout(() => {
             Parent.remove();
+            HideSingleCardContainer();
         }, 1200);
         // this line of code decrease the count of taskcard and then call the function for showing or hiding the default message
         TaskCardCount--;
@@ -96,7 +108,6 @@ function createTaskCardList(TaskName) {
 
     iAddSubTaskPopupBtn.addEventListener("click", (e) => {
         currentSubCardContainer = (e.target.parentNode).previousSibling;
-
         AddSubTaskPopupWindow.classList.remove("UnactivePopup");
         AddSubTaskPopupWindow.classList.add("ActivePopup");
         BlurBg.style.display = "block";
@@ -133,7 +144,7 @@ AddNewTaskBtn.addEventListener('click', (e) => {
         let TaskName = TaskListNameInput.value;
         TaskListNameInput.classList.remove("ErrorNotice");
         createTaskCardList(TaskName);
-        // HideSingleCardContainer();
+        HideSingleCardContainer();
         TaskListNameInput.value = "";
         TaskListNameInput.focus();
 
@@ -186,13 +197,7 @@ AddNewSubTaskBtn.addEventListener('click', (e) => {
 
 })
 
-function HideSingleCardContainer() {
-    SingleCardContainer.classList.add("UnactivePopup");
-    currentClickdCard.classList.remove("SingleCardShow");
-    AppLogoBox.classList.remove("UnactivePopup");
-    BackButton.classList.add("UnactivePopup");
-    addPopupbtnText.classList.remove("UnactivePopup");
-}
+
 BackButton.addEventListener('click', (e) => {
     HideSingleCardContainer();
 })
