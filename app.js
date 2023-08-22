@@ -84,6 +84,7 @@ function createTaskCardList(TaskName) {
         //*this line of code give the grand parent of the clickd button.
         let Parent = (e.target.parentNode).parentNode;
         Parent.classList.add("DeletedCard");
+        ClickedCardHeading.innerText = "";
         setInterval(() => {
             Parent.remove();
         }, 1200);
