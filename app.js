@@ -68,7 +68,6 @@ function HideSingleCardContainer() {
 // This block of code use to create the task list card
 function createTaskCardList(TaskName) {
     ShowHIdeDefaultMessage();
-
     //!Creating Element for task card
     let divTaskCard = document.createElement("div");
     let h2TaskHeading = document.createElement('h2');
@@ -87,8 +86,6 @@ function createTaskCardList(TaskName) {
 
     //!Adding values to the element
     h2TaskHeading.innerText = TaskName;
-
-
 
     //!Adding EventListener to element, this code delete the click card
     iDeleteTaskCardButton.addEventListener("click", (e) => {
@@ -124,7 +121,6 @@ function createTaskCardList(TaskName) {
         addPopupbtnText.classList.add("UnactivePopup");
     })
 
-
     //! Appending Child to parent and Parent to grandparent
     divTaskCard.appendChild(h2TaskHeading);
     divTaskCard.appendChild(divSubTaskContainer);
@@ -145,6 +141,9 @@ AddNewTaskBtn.addEventListener('click', (e) => {
         TaskListNameInput.classList.remove("ErrorNotice");
         createTaskCardList(TaskName);
         HideSingleCardContainer();
+        AddItemPopupWindow.classList.remove("ActivePopup");
+        AddItemPopupWindow.classList.add("UnactivePopup");
+        BlurBg.style.display = "none";
         TaskListNameInput.value = "";
         TaskListNameInput.focus();
 
@@ -190,6 +189,10 @@ AddNewSubTaskBtn.addEventListener('click', (e) => {
         let subTaskName = subTaskNameInput.value;
         subTaskNameInput.classList.remove("ErrorNotice");
         createSubTaskList(subTaskName);
+        // AddItemPopupWindow
+        AddSubTaskPopupWindow.classList.remove("ActivePopup");
+        AddSubTaskPopupWindow.classList.add("UnactivePopup");
+        BlurBg.style.display = "none";
         subTaskNameInput.value = "";
         subTaskNameInput.focus();
 
