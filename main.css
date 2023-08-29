@@ -146,7 +146,6 @@ header {
     width: 100%;
     background-image: linear-gradient(to right, #383226, #273b3b);
     height: 100%;
-    overflow: none;
     z-index: 4;
 }
 
