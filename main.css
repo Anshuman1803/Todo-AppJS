@@ -213,27 +213,14 @@ header {
 .subTaskCompleted {
     width: 100%;
     position: relative;
-    animation: SubTaskCompleted 1.2s ease-in;
     text-decoration: line-through;
     text-align: center;
-    background-color: rgba(255, 99, 71, 0.638);
+    background-color: transparent;
     justify-content: center;
-    color: white;
+    color: red;
+    font-size: 22px;
 }
 
-
-@keyframes SubTaskCompleted {
-
-    from {
-        width: 0%;
-        opacity: 0;
-    }
-
-    to {
-        width: 100%;
-        opacity: 1;
-    }
-}
 
 .subTaskCompleted .subTaskMarkDoneBtn {
     display: none;
